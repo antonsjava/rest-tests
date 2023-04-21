@@ -1,0 +1,20 @@
+{
+  "category" : "simple",
+  "name" : "simple-get-abort",
+  "skip" : false,
+  "request" : {
+    "url" : "echo.zuplo.io", "comment": "wrong url cause execution abort",
+    "method" : "GET",
+    "query" : {
+      "param1" : "value1",
+      "param2" : "value2"
+    },
+    "header" : {
+      "Content-Type" : "application/json",
+      "TestProperty" : "TestValue"
+    }
+  },
+  "condition" : {
+    "status" : {"eq": "200"}
+  }
+}

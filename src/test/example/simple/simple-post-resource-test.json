@@ -1,0 +1,17 @@
+{
+  "category" : "simple",
+  "name" : "simple-post-resource",
+  "skip" : false,
+  "request" : {
+    "url" : "https://echo.zuplo.io",
+    "method" : "POST",
+    "header" : {
+      "Content-Type" : "application/json"
+    },
+  	"payloadFromResource": "./resource-body.txt"
+  },
+  "condition" : {
+    "status" : {"eq": "200"},
+	"body.body": {"contains": "nejake"}
+  }
+}

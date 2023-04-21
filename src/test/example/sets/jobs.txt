@@ -1,0 +1,27 @@
+actress
+actor
+architect
+singer
+dentist
+detective
+writer
+farmer
+nurse
+pilot
+engineer
+accountant
+butcher
+cashier
+barber
+carpenter
+lifeguard
+baker
+electrician
+flight attendant
+plumber
+receptionist
+researcher
+scientist
+lawyer
+bus driver
+designer

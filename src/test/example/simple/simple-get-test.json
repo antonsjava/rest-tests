@@ -1,0 +1,23 @@
+{
+  "category" : "simple",
+  "name" : "simple-get",
+  "skip" : false,
+  "request" : {
+    "url" : "https://echo.zuplo.io",
+    "method" : "GET",
+    "query" : {
+      "param1" : "value1",
+      "param2" : "value2"
+    },
+    "header" : {
+      "Content-Type" : "application/json",
+      "TestProperty" : "TestValue"
+    }
+  },
+  "condition" : {
+    "or": [{"status" : {"eq": "200"}}, {"status" : {"eq": "201"}}],
+	"body.headers.testproperty": {"eq": "TestValue"},
+	"body.query.param1": {"eq": "value1"},
+	"header.Content-Length": {"gt": 100}
+  }
+}

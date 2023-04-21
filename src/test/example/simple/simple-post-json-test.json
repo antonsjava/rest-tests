@@ -1,0 +1,20 @@
+{
+  "category" : "simple",
+  "name" : "simple-post-json",
+  "skip" : false,
+  "request" : {
+    "url" : "https://echo.zuplo.io",
+    "method" : "POST",
+    "header" : {
+      "Content-Type" : "application/json"
+    },
+  	"payload": {
+  		"name": "John",
+  		"surname": "Smith"
+  	}
+  },
+  "condition" : {
+    "status" : {"eq": "200"},
+	"body.body.name": {"eq": "John"}
+  }
+}

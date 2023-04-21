@@ -1,0 +1,24 @@
+{
+  "category" : "", "comment": "if name or category is empty if will be defaulted",
+  "name" : "",
+  "skip" : false,
+  "request" : {
+    "url" : "${zuplo.url}",
+    "method" : "POST",
+    "header" : {
+      "Content-Type" : "application/json"
+    },
+  	"payload": {
+		"id": "${unique.global}",
+  		"name": "John-${unique.request}",
+  		"surname": "Smith-${unique.request}",
+  		"job": "@{sets/jobs.txt|rand}",
+		"book": @{./books.txt|rand}
+  	}
+  },
+  "condition" : {
+    "status" : {"eq": "200"},
+	"body.body.id": {"not empty": ""},
+	"body.body.book.author": {"not empty": ""}
+  }
+}

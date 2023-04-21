@@ -1,0 +1,20 @@
+{
+  "category" : "simple",
+  "name" : "simple-get-skip",
+  "skip" : true, "comment": "set to true to skip test",
+  "request" : {
+    "url" : "echo.zuplo.io",
+    "method" : "GET",
+    "query" : {
+      "param1" : "value1",
+      "param2" : "value2"
+    },
+    "header" : {
+      "Content-Type" : "application/json",
+      "TestProperty" : "TestValue"
+    }
+  },
+  "condition" : {
+    "status" : {"eq": "200"}
+  }
+}

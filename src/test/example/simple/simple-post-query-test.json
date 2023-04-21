@@ -1,0 +1,21 @@
+{
+  "category" : "simple",
+  "name" : "simple-post-query",
+  "skip" : false,
+  "request" : {
+    "url" : "https://echo.zuplo.io",
+    "method" : "POST",
+    "query" : {
+      "param1" : "value1",
+      "param2" : "value2"
+    },
+    "header" : {
+      "Content-Type" : "application/json"
+    },
+  	"payloadFromQuery": true
+  },
+  "condition" : {
+    "status" : {"eq": "200"},
+	"body.body": {"contains": "param2="}
+  }
+}
