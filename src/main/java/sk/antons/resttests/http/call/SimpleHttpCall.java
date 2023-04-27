@@ -47,9 +47,11 @@ public class SimpleHttpCall implements Function<HttpRequest, HttpResponse> {
     private static Logger log = LoggerFactory.getLogger("sk.antons.resttests.http.call");
 
     String encoding = "utf-8";
+    Duration timeout = null;
 
     public static SimpleHttpCall instance() { return new SimpleHttpCall(); }
     public SimpleHttpCall encoding(String value) { this.encoding = value; return this; }
+    public SimpleHttpCall timeout(Duration value) { this.timeout = value; return this; }
 
     @Override
     public HttpResponse apply(HttpRequest t) {
@@ -241,7 +243,7 @@ public class SimpleHttpCall implements Function<HttpRequest, HttpResponse> {
     private synchronized HttpClient httpclient() {
         if(client == null) {
             client = HttpClient.newBuilder()
-                .connectTimeout(Duration.ofSeconds(10))
+                .connectTimeout(timeout == null ? Duration.ofSeconds(60) : timeout)
                 .sslContext(trustSelfSignedSSL())
                 .followRedirects(HttpClient.Redirect.ALWAYS)
                 .version(HttpClient.Version.HTTP_1_1)

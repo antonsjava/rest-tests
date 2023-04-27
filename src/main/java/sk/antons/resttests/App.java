@@ -33,7 +33,6 @@ public class App {
     private String sourceEncoding = null;
     private String urlEncoding = null;
     private String matcher = null;
-    private String directory = null;
 
     private List<RestTestProcessingListener> listeners = new ArrayList<>();
     private List<HttpRequestEnhancer> enhancers = new ArrayList<>();
@@ -77,7 +76,6 @@ public class App {
     public App from(String value) { this.testsBuilder.from(value); return this; }
     public App include(String value) { this.testsBuilder.include(value); return this; }
     public App exclude(String value) { this.testsBuilder.exclude(value); return this; }
-    public App directory(String value, String matcher) { this.directory = value; this.matcher = matcher; return this; }
 
     public App listener(HttpRequestEnhancer value) {
         if(value != null) this.enhancers.add(value);

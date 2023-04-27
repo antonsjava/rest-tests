@@ -35,7 +35,6 @@ public class Main {
         String reportname = null;
         String match = null;
         boolean debug = false;
-        boolean directory = true;
         for(int i = 0; i < args.length; i++) {
             String param = args[i];
             if(isProperty(param, "-p", "--param")) {
